@@ -43,5 +43,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            whoami
-            ls -al /apps/
+            cd /apps/learns_English_words/
+            git pull origin integrate_tg
