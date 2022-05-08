@@ -41,4 +41,5 @@ jobs:
           echo ${{ secrets.SSH_KEY_PUB }} > ~/.ssh/id_rsa.pub
           cat ~/.ssh/id_rsa
           cat ~/.ssh/id_rsa.pub
-          ssh root@mmkk.host
+          ssh root@mmkk.host ls /apps/
+
