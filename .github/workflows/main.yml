@@ -35,12 +35,13 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: Connect SSH
-        run: |
-          mkdir ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-          echo "${{ secrets.SSH_KEY_PUB }}" > ~/.ssh/id_rsa.pub
-          cat ~/.ssh/id_rsa
-          cat ~/.ssh/id_rsa.pub
-          ssh root@mmkk.host "ls /apps/"
-
+      - name: multiple command
+        uses: appleboy/ssh-action@master
+        with:
+          host: mmkk.host
+          username: root
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            whoami
+            ls -al /apps/
